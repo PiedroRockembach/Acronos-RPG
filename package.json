@@ -1,0 +1,19 @@
+{
+  "name": "acronos-rpg",
+  "version": "1.0.0",
+  "description": "ficha para o Ácronos RPG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiedroRockembach/Acronos-RPG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PiedroRockembach/Acronos-RPG/issues"
+  },
+  "homepage": "https://github.com/PiedroRockembach/Acronos-RPG#readme"
+}
