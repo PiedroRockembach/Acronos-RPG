@@ -20,6 +20,9 @@ body {
     flex-grow: 1;
 
 }
+#page {
+    width: 80%;
+}
 main {
     flex-grow: 10;
     display: flex;
