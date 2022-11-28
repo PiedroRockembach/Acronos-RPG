@@ -1,0 +1,51 @@
+.perfil {
+  margin: 20px auto;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 20px;
+  align-items: stretch;
+  width: 40%;
+}
+
+#icon-perfil {
+  background-image: url('../img/euu.png');
+  background-size: cover;
+  border: 5px solid #505050;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  align-self: center;
+}
+
+#icon-perfil:hover {
+opacity: 0.6;
+}
+
+.perfil form {
+  display: flex;
+  flex-flow: column  nowrap;
+  justify-items: flex-start;
+}
+
+button, input {
+  background-color: #505050;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  color: white;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+input {
+    width: 100%;
+
+}
+
+button {
+  margin-top: 10px;
+  align-self:center;
+  width: 80%;
+}

@@ -1,5 +1,7 @@
-function Home() {
-  return <div>Home page</div>
+import App from './_app'
+
+function Index() {
+  return <App />;
 }
 
-export default Home;
+export default Index;
