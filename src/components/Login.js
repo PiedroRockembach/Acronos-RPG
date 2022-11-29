@@ -14,14 +14,10 @@ class Login extends React.Component {
     
   }
   render() {
-    const {action} = this.props;
-    
-    
     return (
       <form action='https://sheetdb.io/api/v1/gai9m9j5zi8qb' method="POST" id="sheetdb-form" onSubmit={this.sender}>
         <input type="text" id="user-input" placeholder="Nome" name="data[name]"/>
         <input type="text" name="data[text]" id="user-password" placeholder="Me diga algo." />
-        {console.log(this)}
         <button type="submit">Enviar</button>
       </form>
     );
