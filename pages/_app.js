@@ -15,7 +15,7 @@ class App extends React.Component {
           <main>
             <div className='perfil'>
               <Perfil />
-              <Login action='https://sheetdb.io/api/v1/gai9m9j5zi8qb'/>
+              <Login />
             </div>
           </main>
         </div>
