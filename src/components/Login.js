@@ -4,6 +4,10 @@ class Login extends React.Component {
     super();
     this.sender = this.sender.bind(this);
   }
+  getter = async (evt) => {
+    const obj = await fetch('https://sheetdb.io/api/v1/gai9m9j5zi8qb');
+    console.log(await obj.json());
+  }
   sender = async (evt) => {
     evt.preventDefault();
     await fetch(evt.target.action, {
@@ -16,12 +20,16 @@ class Login extends React.Component {
   }
   render() {
     return (
+     <>
+      
       <form action='https://sheetdb.io/api/v1/gai9m9j5zi8qb' method="POST" id="sheetdb-form" onSubmit={this.sender}>
+        <button onClick={this.getter}>click</button>
         <input type="text" id="user-input" placeholder="Nome" name="data[name]"/>
         <input type="text" name="data[text]" id="user-password" placeholder="Me diga algo." />
 
         <button type="submit">Enviar</button>
       </form>
+     </>
     );
   }
 }
