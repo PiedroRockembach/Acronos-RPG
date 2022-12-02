@@ -22,7 +22,7 @@ header {
 #side-bar, main {
     /* border: 1px solid #505050; */
     border-radius: 10px;
-    height: 100vh;
+    min-height: 100vh;
     margin: 10px
 }
 #side-bar {
@@ -33,7 +33,7 @@ header {
     width: 80%;
 }
 main {
-    flex-grow: 6;
+    flex-grow: 10;
     display: flex;
     justify-content: center;
     align-content: center;
