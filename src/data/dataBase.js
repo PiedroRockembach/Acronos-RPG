@@ -16,4 +16,5 @@ app.get("/product", async (req, res) => {
     return resizeBy.status(500).send("Server error");
   }
 })
+
 app.listen(PORT, () => console.log(`Server is running in port ${PORT}`))
