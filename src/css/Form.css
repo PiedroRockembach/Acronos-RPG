@@ -1,0 +1,53 @@
+form {
+  align-items: center;
+  background-color: #505050;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  height: 500px;
+  width: 500px;
+  padding: 10px;
+}
+
+input {
+  background-color: #aaa;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 24px;
+  width: 95%;
+}
+
+button {
+  font-size: 24px;
+  border: none;
+  background-color: #202020;
+  color: white;
+  height: 50px;
+  border-radius: 10px;
+ 
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+}
+
+.ask {
+  align-self: center;
+  width: 500px;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
