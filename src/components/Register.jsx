@@ -19,7 +19,7 @@ class Register extends Component {
       registerLogin,
       registerPassword,
     } = this.state;
-    const users = await getInfo;
+    const users = await getInfo();
     const number = users.length + 2;
     console.log(number);
     await fetch('https://acronos-api.vercel.app/api/addUser', {
@@ -40,7 +40,7 @@ class Register extends Component {
       error,
       errorSenha,
     } = this.state;
-    const users = await getInfo;
+    const users = await getInfo();
     const validLogin = users.filter((user) => (user.login === registerLogin));
     
     validLogin.length !== 0 
