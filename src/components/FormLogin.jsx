@@ -70,7 +70,6 @@ class FormLogin extends Component {
     return (
       <div className='form' >
         <h1>Prove que é um Ácrono</h1>
-        {error && <span>Usuário ou senha inválidos</span>}
         <form action="" onSubmit={ this.verifyLogin }>
         <label htmlFor="Usuario"> Login:
           <input type="text" id='Usuario' name='user' onChange={ this.inputChange } />
@@ -78,6 +77,7 @@ class FormLogin extends Component {
         <label htmlFor="senha"> Senha:
           <input type="password" id='senha' name='password' onChange={ this.inputChange } />
           </label>
+        {error && <span>Usuário ou senha inválidos</span>}
           <button type="submit">Entrar</button>
         </form>
         <div className='ask'>
