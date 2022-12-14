@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
 import '../css/Form.css';
 
 
@@ -39,13 +38,17 @@ class FormLogin extends Component {
   verifyLogin = async (e) => {
     e.preventDefault();
     const { user, password } = this.state;
-    const { history } = this.props;
     const users = await this.getInfo();
     const verify = users.filter((u) => u.login === user && u.senha === password);
     if (verify.length === 0) {
       this.setState({ error: true })
     } else {
-      this.setState({ error: false }, () => history.push(`/home/${verify[0].login}`));
+      this.setState({ error: false }, () => {
+        localStorage.setItem('userLogin',JSON.stringify(
+          { login: verify[0].login, name:verify[0].nome,}
+          ))
+        this.props.loginStatus(verify[0].login);
+      });
     };
     
   };
@@ -65,11 +68,11 @@ class FormLogin extends Component {
     const { history } = this.props;
     const { error } = this.state;
     return (
-      <div className='form' onSubmit={ this.verifyLogin }>
-        <h1>Prove seu valor ao tempo</h1>
+      <div className='form' >
+        <h1>Prove que é um Ácrono</h1>
         {error && <span>Usuário ou senha inválidos</span>}
-        <form action="">
-        <label htmlFor="Usuario"> Usuario:
+        <form action="" onSubmit={ this.verifyLogin }>
+        <label htmlFor="Usuario"> Login:
           <input type="text" id='Usuario' name='user' onChange={ this.inputChange } />
         </label>
         <label htmlFor="senha"> Senha:

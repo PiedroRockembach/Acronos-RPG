@@ -59,3 +59,7 @@ span {
   flex-flow: column nowrap;
   align-items: center;
 }
+
+#userImg {
+  display: none;
+}
