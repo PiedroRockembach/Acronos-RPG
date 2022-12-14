@@ -13,25 +13,37 @@ class Register extends Component {
     enabled: false,
   }
 
-  // sendRegister = async (e) => {
-  //   e.preventDefault();
-  //   const {
-  //     registerName,
-  //     registerLogin,
-  //     registerPassword,
-  //   } = this.state;
-  //   const users = await getInfo();
-  //   const number = users.length + 2;
-  //   console.log(number);
-  //   await fetch('https://acronos-api.vercel.app/api/addUser', {
-  //     method: "POST",
-  //     body: JSON.stringify({ nome: registerName, login: registerLogin, senha: registerPassword, id: number,}),
-  //     headers: {
-  //       "content-Type": 'application/json' 
-  //     }
-  //   }).then((data) => data.json())
-  //   .then((json) => console.log(json))
-  // };
+  sendRegister = async (e) => {
+    e.preventDefault();
+    const {
+      registerName,
+      registerLogin,
+      registerPassword,
+    } = this.state;
+    const users = await this.getInfo();
+    const number = users.length + 2;
+    console.log(number);
+    await fetch('https://acronos-api.vercel.app/api/addUser', {
+      method: "POST",
+      body: JSON.stringify({ nome: registerName, login: registerLogin, senha: registerPassword, id: number,}),
+      headers: {
+        "content-Type": 'application/json' 
+      }
+    }).then((data) => data.json())
+    .then((json) => console.log(json))
+  };
+
+  getInfo = async () =>  {
+    
+    const obj = await fetch('https://acronos-api.vercel.app/api/users', {
+      method: "Get",
+      headers: {
+        "content-Type": 'application/json' 
+      }
+    })
+    const json = await obj.json();
+    return json;
+  }
 
   verify2 = async () => {
     const {
@@ -41,22 +53,22 @@ class Register extends Component {
       error,
       errorSenha,
     } = this.state;
-    // const users = await getInfo();
-    // const validLogin = users.filter((user) => (user.login === registerLogin));
+    const users = await this.getInfo();
+    const validLogin = users.filter((user) => (user.login === registerLogin));
     
-    // validLogin.length !== 0 
-    // ? this.setState({ error: true }) : this.setState({ error: false });
-    // if (
-      // registerName !== '' 
-      // && registerLogin !== '' 
-      // && registerPassword !== '' 
-      // && !error
-      // && !errorSenha
-      // // ) {
-      // this.setState({enabled: true, opacity: 1})
-      // } else {
-      // this.setState({enabled: false, opacity: 0.4})
-      // }
+    validLogin.length !== 0 
+    ? this.setState({ error: true }) : this.setState({ error: false });
+    if (
+      registerName !== '' 
+      && registerLogin !== '' 
+      && registerPassword !== '' 
+      && !error
+      && !errorSenha
+      ) {
+      this.setState({enabled: true, opacity: 1})
+      } else {
+      this.setState({enabled: false, opacity: 0.4})
+      }
   }
 
   verifyRegister = async (e) => {
