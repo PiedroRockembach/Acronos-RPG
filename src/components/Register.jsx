@@ -12,25 +12,25 @@ class Register extends Component {
     enabled: false,
   }
 
-  sendRegister = async (e) => {
-    e.preventDefault();
-    const {
-      registerName,
-      registerLogin,
-      registerPassword,
-    } = this.state;
-    const users = await getInfo();
-    const number = users.length + 2;
-    console.log(number);
-    await fetch('https://acronos-api.vercel.app/api/addUser', {
-      method: "POST",
-      body: JSON.stringify({ nome: registerName, login: registerLogin, senha: registerPassword, id: number,}),
-      headers: {
-        "content-Type": 'application/json' 
-      }
-    }).then((data) => data.json())
-    .then((json) => console.log(json))
-  };
+  // sendRegister = async (e) => {
+  //   e.preventDefault();
+  //   const {
+  //     registerName,
+  //     registerLogin,
+  //     registerPassword,
+  //   } = this.state;
+  //   const users = await getInfo();
+  //   const number = users.length + 2;
+  //   console.log(number);
+  //   await fetch('https://acronos-api.vercel.app/api/addUser', {
+  //     method: "POST",
+  //     body: JSON.stringify({ nome: registerName, login: registerLogin, senha: registerPassword, id: number,}),
+  //     headers: {
+  //       "content-Type": 'application/json' 
+  //     }
+  //   }).then((data) => data.json())
+  //   .then((json) => console.log(json))
+  // };
 
   verify2 = async () => {
     const {
