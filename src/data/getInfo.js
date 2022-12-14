@@ -10,4 +10,6 @@ async function getInfo () {
   return json;
 }
 
-module.exports = getInfo();
+module.exports = {
+  getInfo
+};
