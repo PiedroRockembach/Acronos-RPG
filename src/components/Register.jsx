@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import getInfo from '../data/getInfo'
+// import getInfo from '../data/getInfo'
+
 class Register extends Component {
   state = {
     error: false,
@@ -40,22 +41,22 @@ class Register extends Component {
       error,
       errorSenha,
     } = this.state;
-    const users = await getInfo();
-    const validLogin = users.filter((user) => (user.login === registerLogin));
+    // const users = await getInfo();
+    // const validLogin = users.filter((user) => (user.login === registerLogin));
     
-    validLogin.length !== 0 
-    ? this.setState({ error: true }) : this.setState({ error: false });
-    if (
-      registerName !== '' 
-      && registerLogin !== '' 
-      && registerPassword !== '' 
-      && !error
-      && !errorSenha
-      ) {
-      this.setState({enabled: true, opacity: 1})
-      } else {
-      this.setState({enabled: false, opacity: 0.4})
-      }
+    // validLogin.length !== 0 
+    // ? this.setState({ error: true }) : this.setState({ error: false });
+    // if (
+      // registerName !== '' 
+      // && registerLogin !== '' 
+      // && registerPassword !== '' 
+      // && !error
+      // && !errorSenha
+      // // ) {
+      // this.setState({enabled: true, opacity: 1})
+      // } else {
+      // this.setState({enabled: false, opacity: 0.4})
+      // }
   }
 
   verifyRegister = async (e) => {
