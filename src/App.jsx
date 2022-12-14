@@ -1,6 +1,6 @@
 import React from "react";
 import FormLogin from "./components/FormLogin"
-import Register from "./components/Register";
+// import Register from "./components/Register";
 import Home from "./components/Home";
 import { BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
@@ -49,7 +49,7 @@ class App extends React.Component {
           render={(props) => (<Home {...props} exit={ this.logedFalse }/>)} 
           />
           <Route exact path="/login" render={ (props) => <FormLogin {...props} loginStatus={ this.logedTrue} />} />
-          <Route exact path="/Register" component={ Register } />
+          {/* <Route exact path="/Register" component={ Register } /> */}
         </Switch>
           
       </BrowserRouter>
