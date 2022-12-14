@@ -4,7 +4,7 @@ class Register extends Component {
     const { history } = this.props;
     return (
       <div className='form'>
-        <h1>Torne-se um  Ácrono</h1>
+        <h1>Livre-se das correntes do tempo</h1>
         <form action="">
           <label htmlFor="nome">Nome:
             <input type="text" id='nome'/>

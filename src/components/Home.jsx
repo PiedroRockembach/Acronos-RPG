@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 class Home extends Component {
   render() {
+    const { login } = this.props.match.params;
     return (
-      <div>Home
-      <Link to="/login"> Login</Link>
+      <div>
+      <h1>{login}</h1>
 
       </div>
     )

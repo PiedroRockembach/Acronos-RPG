@@ -17,9 +17,10 @@ class App extends React.Component {
     } = this.state;
     return (
       <BrowserRouter>
-        { !loged && <Redirect to="/login" />}
+        { !loged ? <Redirect to="/login" /> : <Redirect to="/home/:login" />}
         <Switch>
-          <Route exact path="/" render={() => (<Home />)} />
+          <Route exact path="/" render={(props) => (<Home {...props} />)} />
+          <Route exact path="/home/:login" render={(props) => (<Home {...props} />)} />
           <Route exact path="/login" component={ FormLogin } />
           <Route exact path="/Register" component={ Register } />
         </Switch>
