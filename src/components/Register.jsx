@@ -10,6 +10,14 @@ class Register extends Component {
     confirmPassword: '',
     opacity: 0.4,
     enabled: false,
+    getUsers: [],
+  }
+  asyncGetUsers = async () =>  {
+    const users = await this.getInfo();
+    return users;
+  };
+  componentDidMount() {
+    this.asyncGetUsers().then((users) => this.setState({ getUsers: users }))
   }
 
   sendRegister = async (e) => {
@@ -18,9 +26,10 @@ class Register extends Component {
       registerName,
       registerLogin,
       registerPassword,
+      getUsers
     } = this.state;
-    const users = await this.getInfo();
-    const number = users.length + 2;
+    
+    const number = getUsers.length + 2;
     console.log(number);
     await fetch('https://acronos-api.vercel.app/api/addUser', {
       method: "POST",
@@ -29,7 +38,12 @@ class Register extends Component {
         "content-Type": 'application/json' 
       }
     }).then((data) => data.json())
-    .then((json) => console.log(json))
+    .then((json) => console.log(json)).then(() => this.goLogin());
+  };
+
+  goLogin = () => {
+    const { history } = this.props;
+    history.push('/login');
   };
 
   getInfo = async () =>  {
@@ -51,9 +65,9 @@ class Register extends Component {
       registerPassword,
       error,
       errorSenha,
+      getUsers,
     } = this.state;
-    const users = await this.getInfo();
-    const validLogin = users.filter((user) => (user.login === registerLogin));
+    const validLogin = getUsers.filter((user) => (user.login === registerLogin));
     
     validLogin.length !== 0 
     ? this.setState({ error: true }) : this.setState({ error: false });

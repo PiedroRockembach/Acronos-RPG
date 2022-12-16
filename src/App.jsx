@@ -49,7 +49,7 @@ class App extends React.Component {
           render={(props) => (<Home {...props} exit={ this.logedFalse }/>)} 
           />
           <Route exact path="/login" render={ (props) => <FormLogin {...props} loginStatus={ this.logedTrue} />} />
-          <Route exact path="/Register" component={ Register } />
+          <Route exact path="/Register" render={ (props) =>  <Register { ...props }/>} />
         </Switch>
           
       </BrowserRouter>
