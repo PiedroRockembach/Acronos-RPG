@@ -105,6 +105,9 @@ class Register extends Component {
     return (
       <div className='form'>
         <h1>Livre-se das correntes do tempo</h1>
+        <h2 className='warning'>
+          <i>ATENÇÃO!</i> <br/> Este é um projeto pessoal AMADOR, não possui um sistem a de armazenamento de dados seguro.<br /> <i>NÃO</i> insira senhas reais ou dados sensíveis enquanto estiver usando esse site.
+        </h2>
         <form action="" onSubmit={this.sendRegister}>
           <label htmlFor="nome">Nome:
             <input type="text" id='nome' name='registerName' onChange={this.inputChange}/>

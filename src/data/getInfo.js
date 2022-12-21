@@ -1,4 +1,4 @@
-async function getInfo () {
+const getInfo = async () => {
     
   const obj = await fetch('https://acronos-api.vercel.app/api/users', {
     method: "Get",
@@ -10,6 +10,4 @@ async function getInfo () {
   return json;
 }
 
-module.exports = {
-  getInfo
-};
+export default getInfo;

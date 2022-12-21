@@ -6,44 +6,23 @@ class FormLogin extends Component {
   state = {
     user: '',
     password: '',
-    error: false,
+    error: true,
+    tryed: false,
   };
-  // sendInfo = async () => {
-  //   const curent = await this.getInfo();
-  //   let counter = 0;
-  //   curent.forEach((user, index) => {
-  //     if (user.nome === 'pro') counter = index + 2;
-  //   })
-  //   console.log(counter);
-  //   await fetch('https://acronos-api.vercel.app/api/users', {
-  //     method: "POST",
-  //     body: JSON.stringify({ nome: 'liciara', login: 123, senha: 123, id: counter}),
-  //     headers: {
-  //       "content-Type": 'application/json' 
-  //     }
-  //   })
-  // }
+
   inputChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
-  // sendInfo = async () => {
-  //   await fetch('http://localhost:5050/api/addUser', {
-  //     method: "POST",
-  //     body: JSON.stringify({ nome: 'pro', login: '123', senha: '123'}),
-  //     headers: {
-  //       "content-Type": 'application/json' 
-  //     }
-  //   })
-  // }
+
   verifyLogin = async (e) => {
     e.preventDefault();
-    const { user, password } = this.state;
+    const { user, password} = this.state;
     const users = await this.getInfo();
     const verify = users.filter((u) => u.login === user && u.senha === password);
     if (verify.length === 0) {
-      this.setState({ error: true })
+      this.setState({ error: true, tryed: true })
     } else {
-      this.setState({ error: false }, () => {
+      this.setState({ error: false, tryed: true }, () => {
         localStorage.setItem('userLogin',JSON.stringify(
           { login: verify[0].login, name:verify[0].nome,}
           ))
@@ -66,7 +45,7 @@ class FormLogin extends Component {
   
   render() {
     const { history } = this.props;
-    const { error } = this.state;
+    const { error, tryed } = this.state;
     return (
       <div className='form' >
         <h1>Prove que é um Ácrono</h1>
@@ -77,7 +56,7 @@ class FormLogin extends Component {
         <label htmlFor="senha"> Senha:
           <input type="password" id='senha' name='password' onChange={ this.inputChange } />
           </label>
-        {error && <span>Usuário ou senha inválidos</span>}
+        {(error && tryed) && <span>Usuário ou senha inválidos</span>}
           <button type="submit">Entrar</button>
         </form>
         <div className='ask'>

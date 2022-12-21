@@ -15,7 +15,6 @@ class App extends React.Component {
   }
   componentDidMount () {
     const usuario = JSON.parse(localStorage.getItem('userLogin'));
-    console.log(usuario);
     const logado = usuario ? true : false;
     this.setState({ 
       loged:logado,

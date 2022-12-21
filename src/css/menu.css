@@ -1,0 +1,25 @@
+.aside-menu {
+  color: white;
+  width: 10vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  /* box-shadow: 1px 1px 10px rgb(69, 54, 14);; */
+}
+
+.menu-option {
+ 
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside-menu button {
+  width: 80%;
+  align-self: center;
+}
+
+.selected {
+  border-right: 1px solid rgb(69, 54, 14);
+}
