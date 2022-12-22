@@ -26,6 +26,7 @@ class Home extends Component {
 
   render() {
     const { login } = this.props.match.params;
+    const { history } = this.props;
     const {
       perfil,
       mesas,
@@ -45,8 +46,15 @@ class Home extends Component {
           /> 
         )}
         { mesas && (
-          <Tables
-          /> 
+        <div className='mesas'>
+        <Tables/> 
+        <button
+          className='btn-create-table'
+          onClick={() => history.push('/create-table')}
+        >
+          Criar mesa
+        </button>
+        </div>
         )}
       </div>
       </div>

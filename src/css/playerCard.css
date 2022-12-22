@@ -1,0 +1,13 @@
+.player-card {
+  border: 1px solid white;
+  width: 200px;
+  height: 300px ;
+}
+
+.players-section {
+  padding-top: 30px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  border-top: 3px solid white;
+}

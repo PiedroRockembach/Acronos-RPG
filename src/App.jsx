@@ -1,7 +1,9 @@
 import React from "react";
-import FormLogin from "./components/FormLogin"
-import Register from "./components/Register";
-import Home from "./components/Home";
+import FormLogin from "./pages/FormLogin"
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import CreateTable from "./pages/CreateTable";
+import Party from "./pages/Party";
 import { BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
 import './App.css'
@@ -49,6 +51,9 @@ class App extends React.Component {
           />
           <Route exact path="/login" render={ (props) => <FormLogin {...props} loginStatus={ this.logedTrue} />} />
           <Route exact path="/Register" render={ (props) =>  <Register { ...props }/>} />
+          <Route exact path="/create-table" render={ (props) =>  <CreateTable { ...props }/>} />
+          <Route exact path="/party/:tableName" render={ (props) =>  <Party { ...props }/>} />
+          <Route path="*" render={ (props) =>  <h1>not found</h1>} />
         </Switch>
           
       </BrowserRouter>
