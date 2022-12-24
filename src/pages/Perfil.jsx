@@ -12,13 +12,16 @@ class Perfil extends Component {
 
   }
   componentDidMount () {
+    this.refreshUser();
+  };
+
+  refreshUser = () => {
     const local = JSON.parse(localStorage.getItem('userLogin'));
     getInfo().then((info) => {
       const myUser = info.filter((user) => user.login === local.login);
       this.setState({user: myUser[0], loading: false});
     });
-      
-  };
+  } 
   
   render() {
     const { loading, user } = this.state;
@@ -37,6 +40,7 @@ class Perfil extends Component {
                 nome={invite.table}
                 descricao={invite.description}
                 remetente={invite.remetente}
+                refresh={ this.refreshUser }
               />
             ))}
           </div>

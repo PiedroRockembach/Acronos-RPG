@@ -12,6 +12,10 @@ class Tables extends Component {
   }
   
   componentDidMount() {
+    this.refreshTables();
+  }
+  
+  refreshTables = () => {
     const user = JSON.parse(localStorage.getItem('userLogin'));
    getTables().then((tables) => {
     const myTables = tables.filter((table) => JSON.parse(table.jogadores).includes(user.login));

@@ -31,7 +31,7 @@ export const acceptTable = async (nome, mestre, jogadores, descricao, id) => {
     body: JSON.stringify({
       nome: nome, 
       mestre: mestre, 
-      jogadores: JSON.stringify([jogadores]), 
+      jogadores: JSON.stringify(jogadores), 
       descricao: descricao, 
       id: id}),
     headers: {

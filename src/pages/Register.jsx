@@ -32,7 +32,13 @@ class Register extends Component {
     const number = getUsers.length + 2;
     await fetch('https://acronos-api.vercel.app/api/addUser', {
       method: "POST",
-      body: JSON.stringify({ nome: registerName, login: registerLogin, senha: registerPassword, id: number,}),
+      body: JSON.stringify({
+        nome: registerName,
+        login: registerLogin,
+        senha: registerPassword,
+        id: number,
+        email: '[]',
+      }),
       headers: {
         "content-Type": 'application/json' 
       }

@@ -1,4 +1,6 @@
 .card-invite {
+  display: flex;
+  flex-direction: column;
   border: 1px solid white;
   color: white;
   padding: 10px;
@@ -14,4 +16,10 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
+.btn-invite {
+  margin: 20px auto;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
 }
