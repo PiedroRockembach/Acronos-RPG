@@ -24,3 +24,19 @@ export const postTable = async (nome, user, descricao, id) => {
   }).then((data) => data.json())
   .then((json) => console.log(json));
 };
+
+export const acceptTable = async (nome, mestre, jogadores, descricao, id) => {
+  await fetch('https://acronos-api.vercel.app/api/tables', {
+    method: "POST",
+    body: JSON.stringify({
+      nome: nome, 
+      mestre: mestre, 
+      jogadores: JSON.stringify([jogadores]), 
+      descricao: descricao, 
+      id: id}),
+    headers: {
+      "content-Type": 'application/json' 
+    }
+  }).then((data) => data.json())
+  .then((json) => console.log(json));
+};
