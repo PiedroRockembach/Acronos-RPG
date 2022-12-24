@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import getInfo from '../data/getInfo';
 import '../css/Form.css';
 
 
@@ -17,7 +18,7 @@ class FormLogin extends Component {
   verifyLogin = async (e) => {
     e.preventDefault();
     const { user, password} = this.state;
-    const users = await this.getInfo();
+    const users = await getInfo();
     const verify = users.filter((u) => u.login === user && u.senha === password);
     if (verify.length === 0) {
       this.setState({ error: true, tryed: true })
@@ -31,17 +32,6 @@ class FormLogin extends Component {
     };
     
   };
-  getInfo = async () => {
-    
-    const obj = await fetch('https://acronos-api.vercel.app/api/users', {
-      method: "Get",
-      headers: {
-        "content-Type": 'application/json' 
-      }
-    })
-    const json = await obj.json();
-    return json;
-  }
   
   render() {
     const { history } = this.props;

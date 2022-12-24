@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import getInfo from '../data/getInfo'
 import Invites from '../components/Invites';
+import { items } from '../data/items';
 import '../css/perfil.css'
 
 
@@ -21,7 +22,6 @@ class Perfil extends Component {
   
   render() {
     const { loading, user } = this.state;
-    user.email && console.log(JSON.parse(user.email));
     return (
      <div>
       {loading ? <h1>Carregando</h1> : (
